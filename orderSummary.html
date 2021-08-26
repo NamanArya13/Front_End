@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <title>Order Summary</title>
+    <style>
+       
+        body{
+            background-image: url("background.jpg");
+            background-repeat: no-repeat;
+            background-size: 1600px 600px;
+        }
+        .container{
+            margin-top:100px;
+            margin-left:550px;
+        }
+        .btn{
+            background-color: #8694f9;
+            width:300px;
+            color:white;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        #cancel{
+            background-color: white;
+            color:#343749;
+            margin-top: 20px;
+        }
+        .plan{
+            text-align: center;
+            padding-top: 20px;
+            
+        }
+        #icon{
+            float:left;
+            width:40px;
+            height:40px;
+            margin-top:-5px;
+            margin-bottom:40px;
+            margin-left:20px;
+        }
+        #annual{
+            float:left;
+            position: relative;
+            top:-10px;
+            left:20px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        #cost{
+            font-size: 14px;
+            color:lightslategrey;
+            position: relative;
+            top:15px;
+            left:-60px;
+            float:left;
+        }
+        #change{
+            text-decoration: none;
+            color:#292F63;
+            font-size: 14px;
+        }
+       
+        
+       
+
+    </style>
+  </head>
+  <body>
+     <div class="container">
+        <div class="card" style="width: 18rem;">
+            <img src="ill_hero.jpg" class="card-img-top" alt="Sorry image cant be loaded">
+            <div class="card-body">
+              <h5 class="card-title" style="margin-left: 70px;color:#292F63"><b>Order Summary</b></h5>
+              <p class="card-text" style="font-size: 15px;color:gray;text-align: center;">You can now listen to millions of songs, audiobooks and podcasts on any device anywhere you like!</p>
+              <div class="plan">
+                  <img src="music_icon-modified.png" id="icon">
+                  <p id="annual">Annual Plan</p>
+                  <p id="cost">&dollar;59.99/year</p>
+                  <a href="#" id="change"><b>Change</b></a>
+              </div>
+              <a href="#" class="btn" id="pay">Proceed to Payment</a>
+              <a href="#" class="btn" id="cancel">Cancel Order</a>
+            </div>
+          </div>
+     </div>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
