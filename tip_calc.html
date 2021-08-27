@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <title>Tip Calculator</title>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+    <style>
+       body{
+           font-size: 20px;
+           background-color: skyblue;
+           font-family: 'Space Mono', monospace;
+           font-weight: bold;
+           color:  darkgreen;
+       }
+       .container{
+           margin-top: 80px;
+       }
+       .calc{
+           width:750px;
+           height:450px;
+           background-color: white;
+           border-radius: 20px;
+           margin-left:270px;
+           margin-top:80px;
+       }
+      
+       .options{
+           float:left;
+            width:390px;
+            height:380px;
+            color:lightslategrey;
+       }
+       .display{
+           float:left;
+           background-color:#1D817F;
+           margin:20px 10px 20px 0px;
+           border-radius:20px;
+           width:330px;
+            height:410px;
+       }
+       .input-group-text{
+           margin-left: 40px;
+           background-color: #f4f5ff;
+       }
+       .btn{
+           width:100px;
+           margin-left:15px;
+           margin-top:-10px;   
+       }
+       .input-group-addon{
+           height:30px;
+           border:none;
+           width:50px;
+           height:20px;
+       }
+       #number{
+           border:none;
+           height:30px; 
+       }
+       .tip{
+           color:white;
+           font-size: 15px;
+           margin-left:30px;
+           margin-top:30px;
+           float:left;
+       }
+       .sub{
+           color:lightgrey;
+       }
+       .tipAmount{
+           float:left;
+           color:lightcyan;
+           margin-left:80px;
+           margin-top:35px;
+           font-size: 20px;
+       }
+       #reset{
+           position: relative;
+           top:70px;
+           font-weight: bold;
+           width:300px;
+           background-color: lightseagreen;
+           color:#42f4cb;
+       }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-5"></div>
+            <div class="col-auto" style="font-size: 25px;">S&nbsp;&nbsp;P&nbsp;&nbsp;L&nbsp;&nbsp;I</div>
+            <div class="col-5"></div>
+        </div>
+        <div class="row">
+            <div class="col-5"></div>
+            <div class="col-auto"  style="font-size: 25px;">T&nbsp;&nbsp;T&nbsp;&nbsp;E&nbsp;&nbsp;R</div>
+            <div class="col-5"></div>
+        </div>
+        <div class="calc">
+            <div class="options">
+                <div class="bill">
+                    <p style="margin-top: 30px;margin-left: 30px;">Bill</p>
+                    <form class="row row-cols-lg-auto g-3 align-items-center">
+                        <div class="col-12" style="margin-top: 0px;">
+                          <label class="visually-hidden" for="bill_amount"></label>
+                          <div class="input-group">
+                            <div class="input-group-text" style="border:none">&dollar;</div>
+                            <input type="text" class="form-control" id="bill_amount" style="background-color: #f4f5ff;border:none" placeholder="                    0">
+                          </div>
+                        </div>
+                        </form>
+                        </div>
+            <div class="selectTip">
+                <p style="margin-top: 30px;margin-left: 30px;">Select Tip %</p>
+                <div class="buttonpress">
+                <input class="btn btn-success" type="button" value="5%">
+                <input class="btn btn-success" type="button" value="10%">
+                <input class="btn btn-success" type="button" value="15%">
+                <p></p>
+                <input class="btn btn-success" type="button" value="20%">
+                <input class="btn btn-success" type="button" value="25%">
+                <button class="btn btn-success" type="button" id="custom"  data-bs-toggle="modal" data-bs-target="#exampleModal" data-name="Custom" style="background-color:white;border:none;color:#1D817F;font-weight: bold;" >
+                    Custom
+                </button>
+            </div>
+            </div>
+            <div class="noOfPeople">
+                <p style="margin-top: 20px;margin-left: 30px;font-size: 18px;">Number of People</p>
+                <div class="input-group mb-3">
+                    <span class="input-group-addon">
+                        <i class="fas fa-address-card" style="margin-left: 20px; font-size: 20px;"></i>
+                    </span> 
+                    <input type="text" class="form-control" id="number" placeholder="                        0" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <input class="btn btn-success" type="submit" value="Submit" id="submit" style="height: 40px;margin-top: 5px;">
+            </div>
+            </div>
+            <div class="display">
+                    <p class="tip">Tip Amount<br><span class="sub">/person</span></p>
+                    <h2 class="tipAmount" id="final_tip">&dollar;0.00</h2>
+                    <p class="tip" style="position: relative;left:-110px;top:15px;">Total<br><span class="sub">/person</span></p>
+                    <h2 class="tipAmount" style="position:relative;left:110px;top:-75px;" id="final_bill">&dollar;0.00</h2>
+                    <input class="btn btn-success" id="reset" type="reset" value="RESET">
+            </div>
+        </div> 
+    </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Enter tip percentage</h5>
+              <button type="button" id="closebutton" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <input type="text" class="form-control" id="custTip" placeholder="eg. 45">
+                  </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="button" id="changes" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script type="text/javascript">
+          var percent="";
+          var intPer="";
+          var intVal;
+          var customVal;
+                $('input:button').click(function(){
+                   percent=$(this).val();     
+                })
+                $('#changes').click(function(){
+                    customVal=$("#custTip").val();
+                })
+        document.getElementById("submit").onclick=function(){
+                var bill;
+                var peopleNumber;
+                var finalBill;
+                var customTip;
+                bill=document.getElementById("bill_amount").value;
+                peopleNumber=document.getElementById("number").value;
+                var finalTip=0;
+                if(percent=="" && customVal==0)
+                    alert("Enter tip percentage");
+                else if(percent=="" && customVal!=0){
+                    customVal=parseInt(customVal);
+                    finalTip=(bill*customVal)/(peopleNumber*100);
+                finalTip=finalTip.toFixed(2);
+                finalBill=(bill/peopleNumber);
+                finalBill=finalBill.toFixed(2);
+                document.getElementById("final_tip").innerHTML="&dollar;"+finalTip;
+                document.getElementById("final_bill").innerHTML="&dollar;"+finalBill;
+                }
+                else{
+                if(percent[1]!="%")
+                    intPer=percent[0]+percent[1];
+                else    
+                    intPer=percent[0];
+                intVal=parseInt(intPer); 
+                finalTip=(bill*intVal)/(peopleNumber*100);
+                finalTip=finalTip.toFixed(2);
+                finalBill=(bill/peopleNumber);
+                finalBill=finalBill.toFixed(2);
+                document.getElementById("final_tip").innerHTML="&dollar;"+finalTip;
+                document.getElementById("final_bill").innerHTML="&dollar;"+finalBill;}
+        }
+        document.getElementById("reset").onclick=function(){
+            document.getElementById("bill_amount").value="";
+            document.getElementById("number").value="";
+            document.getElementById("final_tip").innerHTML="&dollar;0.00";
+            document.getElementById("final_bill").innerHTML="&dollar;0.00";
+            document.getElementById("custTip").innerHTML="";
+             percent="";
+        }
+    </script>
+    <!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
